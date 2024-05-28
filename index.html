@@ -35,7 +35,7 @@
       href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
     />
     <link rel="stylesheet" href="./static/swiper.min.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <script src="./static/swiper.min.js"></script>
 
     <link rel="stylesheet" href="./static/css/bootstrap.min.css" />
@@ -47,6 +47,20 @@
     <script defer src="./static/js/fontawesome.all.min.js"></script>
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z1EKV7PTL0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z1EKV7PTL0");
+    </script>
   </head>
   <body>
     <div class="container-fluid">
@@ -147,30 +161,36 @@
         </div>
       </div>
       <!-- Company -->
-      <div class="background-block row newBtnLayout" style="padding-bottom: 2vh;">
+      <div
+        class="background-block row newBtnLayout"
+        style="padding-bottom: 2vh"
+      >
         <div class="newBtnLayout-shadow">
           <div class="col-12">
-        <div
-          class="mob-inst-text"
-          style="text-align: center; font-size: 30px; white-space: nowrap"
-        >
-          VinAI Research
-        </div>
+            <div
+              class="mob-inst-text"
+              style="text-align: center; font-size: 30px; white-space: nowrap"
+            >
+              VinAI Research
+            </div>
           </div>
           <div class="button-flex">
-        <a href="https://thuanz123.github.io/swiftbrush/" class="button-link">
-          <span class="icon">
-            <i class="fa fa-heart"></i>
-            <!-- <i class="ai ai-arxiv"></i> -->
-          </span>
-          <span>SwiftBrush (Original)</span>
-        </a>
-        <a href="" class="button-link">   
-          <span class="icon">
-            <i class="ai ai-arxiv"></i>
-          </span>
-          <span>arXiv Paper (TBU)</span>
-        </a>
+            <a
+              href="https://thuanz123.github.io/swiftbrush/"
+              class="button-link"
+            >
+              <span class="icon">
+                <i class="fa fa-heart"></i>
+                <!-- <i class="ai ai-arxiv"></i> -->
+              </span>
+              <span>SwiftBrush (Original)</span>
+            </a>
+            <a href="" class="button-link">
+              <span class="icon">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv Paper (TBU)</span>
+            </a>
           </div>
         </div>
       </div>
@@ -192,7 +212,13 @@
             with its multi-step Stable Diffusion counterpart. Initially, we
             explore the quality-diversity trade-off between SwiftBrush and SD
             Turbo: the former excels in image diversity, while the latter excels
-            in image quality. Based on these insights, we add improvements to the model's training approach. Key among these improvements is the optimization of the model's initial setup and the adoption of an advanced training strategy that enhances the model's learning efficiency, including auxialliary loss during the distillation process. Also with further improvements from post-training strategies, we establish a new state-of-the-art one-step diffusion
+            in image quality. Based on these insights, we add improvements to
+            the model's training approach. Key among these improvements is the
+            optimization of the model's initial setup and the adoption of an
+            advanced training strategy that enhances the model's learning
+            efficiency, including auxialliary loss during the distillation
+            process. Also with further improvements from post-training
+            strategies, we establish a new state-of-the-art one-step diffusion
             model, achieving an FID of <strong>8.14</strong> and surpassing all
             GAN-based and multi-step Stable Diffusion models.
           </div>
@@ -796,153 +822,154 @@
             <h3 class="font-ma">Quantitative Results</h3>
           </div>
         </div>
-       <div style="overflow-x: auto; margin: 0 auto;">
-        <table style="margin: 0 auto;">
-          <caption>
-            <b>Quantitative comparisons</b>
-            between our method and others on zero-shot MS COCO-2014 benchmark.
-            For multi-step SD models, we report each with the
-            <i>cfg</i>
-            that returns the best FID, e.g.,
-            <i>cfg</i>
-            = 3 for SDv1.5 and
-            <i>cfg</i>
-            = 2 for SDv2.1. We also report performance of the teacher model
-            (SDv2.1 with
-            <i>cfg</i>
-            = 4.5).
-            <sup>†</sup>
-            denotes reported numbers,
-            <sup>‡</sup>
-            denotes our rerun based on provided GitHubs. `-' denotes unreported
-            data. Ours* indicates training with additional image regularization.
-          </caption>
-          <thead>
-            <tr>
-              <th style="color: white; font-weight: bold">Method</th>
-              <th style="color: white; font-weight: bold">NFEs</th>
-              <th style="color: white; font-weight: bold">FID↓</th>
-              <th style="color: white; font-weight: bold">CLIP↑</th>
-              <th style="color: white; font-weight: bold">Precision↑</th>
-              <th style="color: white; font-weight: bold">Recall↑</th>
-            </tr>
-          </thead>
-          <tbody style="border-top: 3px solid white">
-            <tr>
-              <td>StyleGAN-T<sup>†</sup></td>
-              <td>1</td>
-              <td>13.90</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>GigaGAN<sup>†</sup></td>
-              <td>1</td>
-              <td>9.09</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr style="border-top: 1px solid white">
-              <td>SDv1.5 (<i>cfg</i> = 3)<sup>†</sup></td>
-              <td>25</td>
-              <td>8.78</td>
-              <td>0.30</td>
-              <td>0.59</td>
-              <td><b>0.53</b></td>
-            </tr>
-            <tr>
-              <td>SDv2.1 (<i>cfg</i> = 2)<sup>‡</sup></td>
-              <td>25</td>
-              <td>9.64</td>
-              <td>0.31</td>
-              <td>0.57</td>
-              <td><b>0.53</b></td>
-            </tr>
-            <tr>
-              <td>SDv2.1 (<i>cfg</i> = 4.5)<sup>‡</sup></td>
-              <td>25</td>
-              <td>12.26</td>
-              <td><b>0.33</b></td>
-              <td><u>0.61</u></td>
-              <td>0.41</td>
-            </tr>
-            <tr style="border-top: 1px solid white">
-              <td>SD Turbo<sup>‡</sup></td>
-              <td>1</td>
-              <td>16.10</td>
-              <td><b>0.33</b></td>
-              <td><b>0.65</b></td>
-              <td>0.35</td>
-            </tr>
-            <tr>
-              <td>UFOGen<sup>†</sup></td>
-              <td>1</td>
-              <td>12.78</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>MD-UFOGen<sup>†</sup></td>
-              <td>1</td>
-              <td>11.67</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>HiPA<sup>†</sup></td>
-              <td>1</td>
-              <td>13.91</td>
-              <td>0.31</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>InstaFlow-0.9B<sup>‡</sup></td>
-              <td>1</td>
-              <td>13.33</td>
-              <td>0.30</td>
-              <td>0.53</td>
-              <td>0.45</td>
-            </tr>
-            <tr>
-              <td>DMD<sup>†</sup></td>
-              <td>1</td>
-              <td>11.49</td>
-              <td><u>0.32</u></td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>SwiftBrush</td>
-              <td>1</td>
-              <td>15.46</td>
-              <td>0.30</td>
-              <td>0.47</td>
-              <td>0.46</td>
-            </tr>
-            <tr style="border-top: 1px solid white; color: #cb9d06;">
-              <td>Ours</td>
-              <td>1</td>
-              <td><u>8.77</u></td>
-              <td><u>0.32</u></td>
-              <td>0.55</td>
-              <td><b>0.53</b></td>
-            </tr>
-            <tr style="color: #cb9d06;">
-              <td>Ours*</td>
-              <td>1</td>
-              <td><b>8.14</b></td>
-              <td><u>0.32</u></td>
-              <td>0.57</td>
-              <td><u>0.52</u></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> 
+        <div style="overflow-x: auto; margin: 0 auto">
+          <table style="margin: 0 auto">
+            <caption>
+              <b>Quantitative comparisons</b>
+              between our method and others on zero-shot MS COCO-2014 benchmark.
+              For multi-step SD models, we report each with the
+              <i>cfg</i>
+              that returns the best FID, e.g.,
+              <i>cfg</i>
+              = 3 for SDv1.5 and
+              <i>cfg</i>
+              = 2 for SDv2.1. We also report performance of the teacher model
+              (SDv2.1 with
+              <i>cfg</i>
+              = 4.5).
+              <sup>†</sup>
+              denotes reported numbers,
+              <sup>‡</sup>
+              denotes our rerun based on provided GitHubs. `-' denotes
+              unreported data. Ours* indicates training with additional image
+              regularization.
+            </caption>
+            <thead>
+              <tr>
+                <th style="color: white; font-weight: bold">Method</th>
+                <th style="color: white; font-weight: bold">NFEs</th>
+                <th style="color: white; font-weight: bold">FID↓</th>
+                <th style="color: white; font-weight: bold">CLIP↑</th>
+                <th style="color: white; font-weight: bold">Precision↑</th>
+                <th style="color: white; font-weight: bold">Recall↑</th>
+              </tr>
+            </thead>
+            <tbody style="border-top: 3px solid white">
+              <tr>
+                <td>StyleGAN-T<sup>†</sup></td>
+                <td>1</td>
+                <td>13.90</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>GigaGAN<sup>†</sup></td>
+                <td>1</td>
+                <td>9.09</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr style="border-top: 1px solid white">
+                <td>SDv1.5 (<i>cfg</i> = 3)<sup>†</sup></td>
+                <td>25</td>
+                <td>8.78</td>
+                <td>0.30</td>
+                <td>0.59</td>
+                <td><b>0.53</b></td>
+              </tr>
+              <tr>
+                <td>SDv2.1 (<i>cfg</i> = 2)<sup>‡</sup></td>
+                <td>25</td>
+                <td>9.64</td>
+                <td>0.31</td>
+                <td>0.57</td>
+                <td><b>0.53</b></td>
+              </tr>
+              <tr>
+                <td>SDv2.1 (<i>cfg</i> = 4.5)<sup>‡</sup></td>
+                <td>25</td>
+                <td>12.26</td>
+                <td><b>0.33</b></td>
+                <td><u>0.61</u></td>
+                <td>0.41</td>
+              </tr>
+              <tr style="border-top: 1px solid white">
+                <td>SD Turbo<sup>‡</sup></td>
+                <td>1</td>
+                <td>16.10</td>
+                <td><b>0.33</b></td>
+                <td><b>0.65</b></td>
+                <td>0.35</td>
+              </tr>
+              <tr>
+                <td>UFOGen<sup>†</sup></td>
+                <td>1</td>
+                <td>12.78</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>MD-UFOGen<sup>†</sup></td>
+                <td>1</td>
+                <td>11.67</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>HiPA<sup>†</sup></td>
+                <td>1</td>
+                <td>13.91</td>
+                <td>0.31</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>InstaFlow-0.9B<sup>‡</sup></td>
+                <td>1</td>
+                <td>13.33</td>
+                <td>0.30</td>
+                <td>0.53</td>
+                <td>0.45</td>
+              </tr>
+              <tr>
+                <td>DMD<sup>†</sup></td>
+                <td>1</td>
+                <td>11.49</td>
+                <td><u>0.32</u></td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>SwiftBrush</td>
+                <td>1</td>
+                <td>15.46</td>
+                <td>0.30</td>
+                <td>0.47</td>
+                <td>0.46</td>
+              </tr>
+              <tr style="border-top: 1px solid white; color: #cb9d06">
+                <td>Ours</td>
+                <td>1</td>
+                <td><u>8.77</u></td>
+                <td><u>0.32</u></td>
+                <td>0.55</td>
+                <td><b>0.53</b></td>
+              </tr>
+              <tr style="color: #cb9d06">
+                <td>Ours*</td>
+                <td>1</td>
+                <td><b>8.14</b></td>
+                <td><u>0.32</u></td>
+                <td>0.57</td>
+                <td><u>0.52</u></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <!-- Comparison -->
       <div class="background-block row mob-bottom" style="padding-bottom: 5vh">
